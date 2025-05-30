@@ -1,0 +1,20 @@
+import './App.css'
+import { Route,Routes } from 'react-router-dom'
+import Home from './pages/Home/Home'
+import Films from './pages/Films/Films'
+import SharedNavbar from './components/Shared/NavbarShared'
+
+function App() {
+
+  return (
+    <>
+    <SharedNavbar/>
+     <Routes>
+      <Route path='/' element=<Home/> > </Route>
+      <Route path='/films' element=<Films/> > </Route>
+     </Routes>
+    </>
+  )
+}
+
+export default App
