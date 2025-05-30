@@ -1,13 +1,8 @@
 import { url, Authorization } from "../../api/config";
 
 function Films() {
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization,
-    },
-  };
+
+ 
 
   fetch(url, options)
     .then((res) => res.json())
