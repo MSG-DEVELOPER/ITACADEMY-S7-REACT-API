@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
+import { Header,StyledLink } from "./NavbarShared.style";
 
 function SharedNavbar() {
   return (
-    <div style={{border:"solid red 2px"}}>
-      Navbar Shared
-      <Link to='/'>
+    <Header >
+    
+      <StyledLink to='/'>
         {" "}
         <button>HOME</button>
-      </Link>
+      </StyledLink>
 
         <Link to='/films'>
         {" "}
@@ -15,7 +16,7 @@ function SharedNavbar() {
       </Link>
 
 
-    </div>
+    </Header>
   );
 }
 

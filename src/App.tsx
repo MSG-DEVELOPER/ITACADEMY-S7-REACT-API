@@ -2,7 +2,7 @@ import './App.css'
 import { Route,Routes } from 'react-router-dom'
 import Home from './pages/Home/Home'
 import Films from './pages/Films/Films'
-import SharedNavbar from './components/Shared/NavbarShared'
+import SharedNavbar from './components/Shared/NavbarShared/NavbarShared'
 
 function App() {
 
