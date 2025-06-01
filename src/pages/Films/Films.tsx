@@ -1,12 +1,19 @@
 import useFetchData from "../../hooks/useFetchData";
+import { urlAllFilms } from "../../api/config";
 
 function Films() {
-useFetchData();
- 
+  const data : object | null = useFetchData(urlAllFilms);
+      
+  if (!data) return <p>Cargando...</p>;
 
- 
 
-  return <div>pelis</div>;
+  return (
+    <div>
+      {data?.results.map((item: object) => (
+        <p key={item.id}>{item.title} {item.id}</p> 
+      ))}
+    </div>
+  );
 }
 
 export default Films;
