@@ -14,17 +14,22 @@ const[data,setData] = useState<object|null>(null);
     },
   };
 
-useEffect( ()=>{
+useEffect(() => {
+    fetch(url, options)
+      .then((res) => {
+        console.log("🔍 Response completo:", res); // 👉 Acá ves la estructura del objeto Response
+       
 
-  fetch(url,options)
-      .then((res)=>res.json())
-      .then((data)=>setData(data))
-      .catch(er=>console.log(er))
-      
-    
-
-} ,[]);
-
+        return res.json(); // ¡Recordá retornar esto!
+      })
+      .then((data) => {
+        console.log("📦 Data JSON parseada:", data);
+        setData(data);
+      })
+      .catch((error) => {
+        console.error("❌ Error en fetch:", error);
+      });
+  }, []);
 
 
 

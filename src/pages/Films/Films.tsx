@@ -1,13 +1,10 @@
-import { url, Authorization } from "../../api/config";
+import useFetchData from "../../hooks/useFetchData";
 
 function Films() {
-
+useFetchData();
  
 
-  fetch(url, options)
-    .then((res) => res.json())
-    .then((data) => console.log(data))
-    .catch((err) => console.error(err));
+ 
 
   return <div>pelis</div>;
 }
