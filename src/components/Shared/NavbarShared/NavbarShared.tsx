@@ -1,19 +1,18 @@
-import { Link } from "react-router-dom";
 import { Header,StyledLink } from "./NavbarShared.style";
 
 function SharedNavbar() {
   return (
     <Header >
     
-      <StyledLink to='/'>
+      <StyledLink to='/'  style={{ textDecoration: 'none', color: 'white', fontWeight: '700'  }}>
         {" "}
-        <button>HOME</button>
+       Home
       </StyledLink>
 
-        <Link to='/films'>
+        <StyledLink to='/films' style={{ textDecoration: 'none', color: 'white', fontWeight: '700'  }}>
         {" "}
-        <button>FILMS</button>
-      </Link>
+        Films
+      </StyledLink>
 
 
     </Header>

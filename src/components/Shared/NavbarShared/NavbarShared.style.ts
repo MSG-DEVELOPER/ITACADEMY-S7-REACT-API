@@ -1,14 +1,31 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
+
 
 export const Header =styled.header`
 display: flex;
-justify-content: center;
 gap: 1rem;
-border: solid 2px pink;
+background-color: purple;
+padding: 1rem;
 `
 
-export const StyledLink = styled.link`
 
-   box-shadow: 5px 5px 5px black;
-   cursor: pointer;
-`
+
+
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  padding: 5px;
+  transition: 1s;
+   
+  &:hover {
+   
+    border-radius: 15px;
+    background-color: blue;
+    
+  }
+`;
+
+
