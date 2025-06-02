@@ -1,5 +1,7 @@
 import useFetchData from "../../hooks/useFetchData";
 import { urlAllFilms } from "../../api/config";
+import CardFilms from "../../components/Films/CardFilms/CardFilms";
+import { Body } from "./Films.style";
 
 function Films() {
   const data : object | null = useFetchData(urlAllFilms);
@@ -8,11 +10,11 @@ function Films() {
 
 
   return (
-    <div>
+    <Body>
       {data?.results.map((item: object) => (
-        <p key={item.id}>{item.title} {item.id}</p> 
+        <CardFilms key={item.id} title={item.title} path={item.poster_path} vote={item.vote_average} /> 
       ))}
-    </div>
+    </Body>
   );
 }
 
