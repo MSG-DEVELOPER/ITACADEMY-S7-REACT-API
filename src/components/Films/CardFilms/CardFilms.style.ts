@@ -11,9 +11,8 @@ export const Main = styled.div`
    article{
     padding:5px;
     height: 6.5rem;
-    border: 2px dotted red;
-    
-   }
+   
+    }
 
    p{
  width: 40px;
@@ -27,6 +26,7 @@ export const Main = styled.div`
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   color: #333;
   font-size: 1rem;
+  margin-top: -1rem;
   
    }
   `

@@ -18,7 +18,7 @@ function CardFilms(props: Props) {
     sizeO: "original",
   };
 
-  const vote : number = props.vote.toFixed(1);
+  const vote  = props.vote.toFixed(1);
 
 
   return (
