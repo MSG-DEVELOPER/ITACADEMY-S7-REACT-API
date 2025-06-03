@@ -5,6 +5,7 @@ interface Props {
   title: string;
   path: string;
   vote:number;
+  top:boolean;
 }
 
 function CardFilms(props: Props) {
@@ -23,13 +24,14 @@ function CardFilms(props: Props) {
 
   return (
     <div>
-      <Main>
+      <Main top={props.top}>
         <img
           src={`${BaseUrl}/${Width.size3}${props.path}`}
           alt="main image of film poster" />
           <article >  
             <h4>{props.title}</h4>
             <p>{vote}</p>
+           
           </article>
       
       </Main>

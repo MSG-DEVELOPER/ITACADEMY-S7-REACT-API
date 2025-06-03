@@ -12,7 +12,8 @@ function Films() {
   return (
     <Body>
       {data?.results.map((item: object) => (
-        <CardFilms key={item.id} title={item.title} path={item.poster_path} vote={item.vote_average} /> 
+        <CardFilms key={item.id} title={item.title} path={item.poster_path} vote={item.vote_average} 
+        top={item.vote_average > 7.5}/>
       ))}
     </Body>
   );
