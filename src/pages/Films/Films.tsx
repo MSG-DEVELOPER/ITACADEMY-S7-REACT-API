@@ -5,6 +5,10 @@ import { Body } from "./Films.style";
 
 function Films() {
   const data : object | null = useFetchData(urlAllFilms);
+  
+  function handleClick(){
+    alert("peli clickada")
+  }
       
   if (!data) return <p>Cargando...</p>;
 
@@ -13,7 +17,7 @@ function Films() {
     <Body>
       {data?.results.map((item: object) => (
         <CardFilms key={item.id} title={item.title} path={item.poster_path} vote={item.vote_average} 
-        top={item.vote_average > 7.5}/>
+        top={item.vote_average > 7.5} callback={handleClick}       />
       ))}
     </Body>
   );

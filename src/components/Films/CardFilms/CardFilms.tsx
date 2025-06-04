@@ -6,6 +6,7 @@ interface Props {
   path: string;
   vote:number;
   top:boolean;
+ callback:()=>void;
 }
 
 function CardFilms(props: Props) {
