@@ -12,10 +12,7 @@ import { Body } from "./Films.style";
 
 function Films() {
 
-const loading = useSelector((state)=>state.fetch.loading)
-const data=  useSelector((state)=>state.fetch.data)
-const error = useSelector((state)=>state.fetch.error)
-
+const { loading, data, error } = useSelector((state) => state.fetch);
 const dispatch = useDispatch();
 
 
@@ -35,7 +32,7 @@ useEffect( ()=>{
     <Body>
       {data?.results.map((item: object) => (
         <CardFilms key={item.id} title={item.title} path={item.poster_path} vote={item.vote_average} 
-        top={item.vote_average > 7.5}       />
+        top={item.vote_average > 7.5} id={item.id}  />
       ))}   
 
       {loading && <Spinner/> }

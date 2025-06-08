@@ -22,7 +22,7 @@ export const StyledLink = styled(Link)`
    
   &:hover {
    
-    border-radius: 15px;
+    
     background-color: blue;
     
   }

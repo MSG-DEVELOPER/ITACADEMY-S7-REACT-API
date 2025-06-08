@@ -1,12 +1,13 @@
 import { BaseUrl } from "../../../api/config";
 import { Main } from "./CardFilms.style";
+import { Link } from "react-router-dom";
 
 interface Props {
   title: string;
   path: string;
-  vote:number;
-  top:boolean;
-
+  vote: number;
+  top: boolean;
+  id: string;
 }
 
 function CardFilms(props: Props) {
@@ -20,21 +21,25 @@ function CardFilms(props: Props) {
     sizeO: "original",
   };
 
-  const vote  = props.vote.toFixed(1);
+  
 
+  function handleOnClick(id: string) {
+    alert("GENIO" + id);
+  }
 
   return (
     <div>
-      <Main top={props.top}>
-        <img
-          src={`${BaseUrl}/${Width.size3}${props.path}`}
-          alt="main image of film poster" />
-          <article >  
+      <Main top={props.top} onClick={() => handleOnClick(props.id)}>
+        <Link to={`/credits/${props.id}`} >
+          <img
+            src={`${BaseUrl}/${Width.size3}${props.path}`}
+            alt="main image of film poster"
+          />
+          <article>
             <h4>{props.title}</h4>
-            <p>{vote}</p>
-           
+            <p>{props.vote.toFixed(1)}</p>
           </article>
-      
+        </Link>
       </Main>
     </div>
   );
