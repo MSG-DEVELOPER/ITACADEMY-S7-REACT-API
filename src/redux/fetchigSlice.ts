@@ -13,20 +13,10 @@ const initialState: initialState = {
   error: false,
 };
 
-export const fetchSlice = createSlice({
+ const fetchSlice = createSlice({
   name: "fetch",
   initialState,
-  reducers: {
-   
-
-    fetchSucces: (state, action) => {
-      state.data = action.payload;
-    
-    }
-  
-
-    
-  },
+  reducers: {},
 
   extraReducers:(builder)=>{
     builder
@@ -34,8 +24,8 @@ export const fetchSlice = createSlice({
         state.loading=true;
         state.error = false;
     })
-    .addCase(fetchThunk.fulfilled,(state)=>{
-        state.data=
+    .addCase(fetchThunk.fulfilled,(state,action)=>{
+        state.data=action.payload;
         state.loading = false;
         state.error = false;
 
@@ -48,3 +38,4 @@ export const fetchSlice = createSlice({
   
 });
 
+export default fetchSlice.reducer ;
