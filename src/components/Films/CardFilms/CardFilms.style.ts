@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Main = styled.div<{ top: boolean }>`
  border: 1px solid grey;
@@ -31,4 +32,10 @@ export const Main = styled.div<{ top: boolean }>`
   }
   
   `
+
+
+export const LinkStyled = styled(Link)`
+text-decoration: none;
+color: inherit;
+`
  

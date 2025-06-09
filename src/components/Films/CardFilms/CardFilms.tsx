@@ -1,6 +1,5 @@
 import { BaseUrl } from "../../../api/config";
-import { Main } from "./CardFilms.style";
-import { Link } from "react-router-dom";
+import { Main,LinkStyled } from "./CardFilms.style";
 
 interface Props {
   title: string;
@@ -30,7 +29,7 @@ function CardFilms(props: Props) {
   return (
     <div>
       <Main top={props.top} onClick={() => handleOnClick(props.id)}>
-        <Link to={`/credits/${props.id}`} >
+        <LinkStyled to={`/credits/${props.id}`} >
           <img
             src={`${BaseUrl}/${Width.size3}${props.path}`}
             alt="main image of film poster"
@@ -39,7 +38,7 @@ function CardFilms(props: Props) {
             <h4>{props.title}</h4>
             <p>{props.vote.toFixed(1)}</p>
           </article>
-        </Link>
+        </LinkStyled>
       </Main>
     </div>
   );
