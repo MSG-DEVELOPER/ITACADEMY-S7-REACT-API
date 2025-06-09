@@ -6,6 +6,7 @@ import { fetchCreditsThunk } from "../../redux/thunks/fetchCreditsThunk";
 import Spinner from "../../components/Shared/Spinner/Spinner";
 import NotFound from "../../components/Shared/NotFound/NotFound";
 import CardCredits from "../../components/Credits/CardCredits/CardCredits";
+import { PageWrapper, Grid } from "./Credits.style";
 
 function Credits() {
   const id = useParams().filmId;
@@ -19,34 +20,23 @@ function Credits() {
 
   return (
     <div>
+      <PageWrapper>
+        <Grid>
+          {data?.cast.map((member: any) => (
+            <CardCredits
+              key={member.id}
+              name={member.name}
+              path={member.profile_path}
+              character={member.character}
+            />
+          ))}
+        </Grid>
+      </PageWrapper>
+
       <section>
-        {/* /*contiene data.cast y data.crew*/}
         {loading && <Spinner />}
         {error && <NotFound />}
       </section>
-
-      <img
-        src="https://image.tmdb.org/t/p//w154/izTspHKOpOAslVtlOsMv89o0rNe.jpg"
-        alt="Actor/Actriz principal"
-      />
-        {data && console.log(data.cast[0].name)}
-      {/* src={`${BaseUrl}/${Width.size3}${props.path}`}*/}
-
-        {/* {data?.results.map((item: object) => (
-        <CardFilms key={item.id} title={item.title} path={item.poster_path} vote={item.vote_average} 
-        top={item.vote_average > 7.5} id={item.id}  />
-      ))}    */}
-        {data?.cast.map((item:object)=>(
-          <CardCredits name={item.name}/>
-        ))}
-
-          {/* {console.log(data.cast)} */}
-      {/* {data.cast.map((item,index)=>{
-
-        <p> {item.name}  </p>
-
-      })}; */}
-
     </div>
   );
 }

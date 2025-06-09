@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const Body = styled.div`
-margin-top: 1rem;
-display:flex;
-gap:4rem;
-flex-wrap:wrap;
-justify-content: space-around;
-overflow: hidden;
-`
+  margin: 2rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  background-color: #f9f9f9;
+  padding: 1rem;
+`;

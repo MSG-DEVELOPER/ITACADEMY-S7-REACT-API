@@ -22,13 +22,11 @@ function CardFilms(props: Props) {
 
   
 
-  function handleOnClick(id: string) {
-    alert("GENIO" + id);
-  }
+  
 
   return (
     <div>
-      <Main top={props.top} onClick={() => handleOnClick(props.id)}>
+      <Main top={props.top} >
         <LinkStyled to={`/credits/${props.id}`} >
           <img
             src={`${BaseUrl}/${Width.size3}${props.path}`}
