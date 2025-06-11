@@ -6,6 +6,6 @@ export const Body = styled.div`
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
-  background-color: #f9f9f9;
   padding: 1rem;
+  padding-top: 5rem;
 `;

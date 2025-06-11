@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const Main = styled.div<{ top: boolean }>`
+export const Main = styled.div<{ $top: boolean }>`
   position: relative;
   width: 185px;
   background-color: #ffffff;
@@ -29,9 +29,9 @@ export const Main = styled.div<{ top: boolean }>`
     right: 8px;
     width: 40px;
     height: 40px;
-    background-color: ${({ top }) => (top ? "purple" : "#f0e6d2")};
-    color: ${({ top }) => (top ? "#ffd700" : "#333")};
-    font-size: ${({ top }) => (top ? "1.8rem" : "1rem")};
+    background-color: ${({ $top }) => ($top ? "purple" : "#f0e6d2")};
+    color: ${({ $top }) => ($top ? "#ffd700" : "#333")};
+    font-size: ${({ $top }) => ($top ? "1.8rem" : "1rem")};
     border-radius: 50%;
     display: flex;
     align-items: center;
