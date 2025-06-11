@@ -1,20 +1,17 @@
-import { Header,StyledLink } from "./NavbarShared.style";
+import { Header, StyledLink, NavGroup } from "./NavbarShared.style";
 
 function SharedNavbar() {
   return (
-    <Header >
-    
-      <StyledLink to='/'  style={{ textDecoration: 'none', color: 'white', fontWeight: '700'  }}>
-        {" "}
-       Home
-      </StyledLink>
+    <Header>
+      <NavGroup>
+        <StyledLink to='/'>Home</StyledLink>
+        <StyledLink to='/films'>Films</StyledLink>
+      </NavGroup>
 
-        <StyledLink to='/films' style={{ textDecoration: 'none', color: 'white', fontWeight: '700'  }}>
-        {" "}
-        Films
-      </StyledLink>
-
-
+      <NavGroup>
+        <StyledLink to='/login' $auth={true}>Login</StyledLink>
+        <StyledLink to='/register' $auth = {true}   >Register</StyledLink>
+      </NavGroup>
     </Header>
   );
 }

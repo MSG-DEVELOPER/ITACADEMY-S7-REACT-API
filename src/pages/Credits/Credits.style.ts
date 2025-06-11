@@ -10,4 +10,5 @@ export const Grid = styled.section`
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 1.5rem;
   justify-items: center;
+  padding-top: 5rem;
 `;

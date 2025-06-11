@@ -5,7 +5,7 @@ interface Props {
   title: string;
   path: string;
   vote: number;
-  top: boolean;
+  $top: boolean;
   id: string;
 }
 
@@ -26,7 +26,7 @@ function CardFilms(props: Props) {
 
   return (
     <div>
-      <Main top={props.top} >
+      <Main $top={props.$top} >
         <LinkStyled to={`/credits/${props.id}`} >
           <img
             src={`${BaseUrl}/${Width.size3}${props.path}`}
