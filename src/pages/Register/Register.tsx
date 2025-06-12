@@ -16,12 +16,14 @@ type FormData = {
 };
 
 function Register() {
-  const { register, handleSubmit, formState } = useForm<FormData>();
+  const { register, handleSubmit, formState,watch } = useForm<FormData>();
   const { errors } = formState;
+
 
   function validateForm(data: FormData) {
     console.log(data);
   }
+  const password = watch("password");
 
   return (
     <RegisterWrapper>
@@ -58,7 +60,10 @@ function Register() {
         <Input
           type="password"
           placeholder="Confirm Password"
-          {...register("confirmPassword", { required: "*Obligatorio" })}
+          {...register("confirmPassword", {
+            required: "*Obligatorio" ,
+            validate:valuee=>valuee===password? true : "contraseñas no coinciden"
+        })}
         />
         {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
 
