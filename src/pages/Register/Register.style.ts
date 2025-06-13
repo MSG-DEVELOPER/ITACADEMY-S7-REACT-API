@@ -65,3 +65,31 @@ export const SubmitButton = styled.button`
     background-color: darkorange;
   }
 `;
+
+export const SuccessMessage = styled.p`
+  margin-top: 1rem;
+  color: #a5d6a7; /* verde claro */
+  background-color: #388e3c; /* verde oscuro */
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 0 8px #388e3c;
+  user-select: none;
+`;
+
+export const ErrorMessage = styled.p`
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  color: #ff6b6b; /* rojo suave */
+  background-color: #f44336; /* rojo fuerte */
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 0 6px #f44336;
+  user-select: none;
+`;
+

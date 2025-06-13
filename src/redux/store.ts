@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import  fetchReducer  from "./fetchigSlice";
 import creditsReducer from './creditsSlice';
+import userReducer from './userSlice';
 
 const store= configureStore(
 
@@ -8,7 +9,8 @@ const store= configureStore(
       reducer:{
         
           fetch:fetchReducer,
-          credits: creditsReducer
+          credits: creditsReducer,
+          user:userReducer
 
       }
 
