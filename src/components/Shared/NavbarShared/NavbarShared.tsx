@@ -21,7 +21,7 @@ function SharedNavbar() {
     signOut(auth)
     .then(() => {
       dispatch(logout());
-      console.log("👋 Sesión cerrada");
+      
     })
     .catch((error) => {
       console.error("Error al cerrar sesión:", error);
