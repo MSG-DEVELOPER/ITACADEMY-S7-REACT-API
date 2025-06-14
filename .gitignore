@@ -27,3 +27,4 @@ checklist
 # Configs sensibles
 src/api/config.ts
 src/bbdd/config.ts
+.env
