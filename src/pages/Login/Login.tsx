@@ -4,6 +4,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../bbdd/config";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/userSlice";
+import { useLocation,useNavigate } from "react-router-dom";
 
 
 
@@ -27,6 +28,9 @@ function Login() {
 const {register,handleSubmit,formState,reset} =useForm<FormData>();          
 const {errors } = formState;
 const dispatch = useDispatch();
+const location=useLocation();
+const navigate=useNavigate();
+const urlDestiy= location.state?.from?.pathname ||"/";
 
 
 async function onSubmit(data:FormData){
@@ -41,6 +45,7 @@ async function onSubmit(data:FormData){
     }))
 
     reset();
+    navigate(urlDestiy,{replace:true});
   }catch(error){
 
     alert("❌ Error al iniciar sesión => " + error.message);
