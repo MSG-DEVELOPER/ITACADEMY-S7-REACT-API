@@ -19,7 +19,7 @@ export default function Home() {
       <HeroSection>
         <HeroTitle>Bienvenido a MovieZone</HeroTitle>
         <HeroSubtitle>Descubre, registra y disfruta de tus películas favoritas</HeroSubtitle>
-        <HeroButton to="/films">Explorar Films</HeroButton>
+        <HeroButton to="/films">Explorar Películas</HeroButton>
       </HeroSection>
 
       <FeaturesSection>
