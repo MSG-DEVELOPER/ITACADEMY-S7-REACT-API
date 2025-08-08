@@ -5,7 +5,7 @@ import { Navigate,useLocation } from "react-router-dom";
 
 function ProtectedRoutes(props: {children:ReactElement}) {
 
-const user=useSelector((state:unknown)=>state.user);
+const user=useSelector((state:unknow)=>state.user);
 const location=useLocation();
 
 if(!user.email){

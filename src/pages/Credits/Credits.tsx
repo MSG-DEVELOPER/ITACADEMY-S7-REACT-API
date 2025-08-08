@@ -8,6 +8,8 @@ import NotFound from "../../components/Shared/NotFound/NotFound";
 import CardCredits from "../../components/Credits/CardCredits/CardCredits";
 import { PageWrapper, Grid } from "./Credits.style";
 
+
+
 function Credits() {
   const id = useParams().filmId;
   const url = `${urlCreditBase}${id}/credits?language=en-US`;

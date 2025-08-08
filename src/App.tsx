@@ -6,7 +6,7 @@ import Credits from "./pages/Credits/Credits";
 import SharedNavbar from "./components/Shared/NavbarShared/NavbarShared";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
-import ProtectedRoutes from "./routes/protectedRoutes";
+import ProtectedRoutes from "./routes/ProtectedRoutes";
 
 function App() {
   return (
