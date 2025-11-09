@@ -7,8 +7,11 @@ import { login } from "../../redux/userSlice";
 
 import {
   RegisterWrapper,
+  RegisterContainer,
   Title,
+  Subtitle,
   Form,
+  InputGroup,
   Input,
   SubmitButton,
   SuccessMessage,
@@ -64,63 +67,76 @@ function Register() {
 
   return (
     <RegisterWrapper>
-      <Title>Crear cuenta</Title>
+      <RegisterContainer>
+        <Title>Crear cuenta</Title>
+        <Subtitle>Completa el formulario para registrarte</Subtitle>
 
-      <Form onSubmit={handleSubmit(validateForm)}>
-        <Input
-          type="text"
-          placeholder="Username"
-          {...register("username", { required: "*Obligatorio" })}
-        />
-        {errors.username && (
-          <ErrorMessage>{errors.username.message}</ErrorMessage>
-        )}
+        <Form onSubmit={handleSubmit(validateForm)}>
+          <InputGroup>
+            <Input
+              type="text"
+              placeholder="Nombre de usuario"
+              {...register("username", { required: "Este campo es obligatorio" })}
+            />
+            {errors.username && (
+              <ErrorMessage>{errors.username.message}</ErrorMessage>
+            )}
+          </InputGroup>
 
-        <Input
-          type="email"
-          placeholder="Email"
-          {...register("email", {
-            required: "*Obligatorio",
-            pattern: {
-              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-              message: "Email no válido",
-            },
-          })}
-        />
-        {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
+          <InputGroup>
+            <Input
+              type="email"
+              placeholder="Correo electrónico"
+              {...register("email", {
+                required: "Este campo es obligatorio",
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "Email no válido",
+                },
+              })}
+            />
+            {errors.email && (
+              <ErrorMessage>{errors.email.message}</ErrorMessage>
+            )}
+          </InputGroup>
 
-        <Input
-          type="password"
-          placeholder="Password"
-          {...register("password", {
-            required: "*Obligatorio",
-            minLength: {
-              value: 6,
-              message: "La contraseña debe tener al menos 6 caracteres",
-            },
-          })}
-        />
-        {errors.password && (
-          <ErrorMessage>{errors.password.message}</ErrorMessage>
-        )}
+          <InputGroup>
+            <Input
+              type="password"
+              placeholder="Contraseña"
+              {...register("password", {
+                required: "Este campo es obligatorio",
+                minLength: {
+                  value: 6,
+                  message: "La contraseña debe tener al menos 6 caracteres",
+                },
+              })}
+            />
+            {errors.password && (
+              <ErrorMessage>{errors.password.message}</ErrorMessage>
+            )}
+          </InputGroup>
 
-        <Input
-          type="password"
-          placeholder="Confirm Password"
-          {...register("confirmPassword", {
-            required: "*Obligatorio",
-            validate: (valuee) =>
-              valuee === password ? true : "Contraseñas no coinciden",
-          })}
-        />
-        {errors.confirmPassword && (
-          <ErrorMessage>{errors.confirmPassword.message}</ErrorMessage>
-        )}
+          <InputGroup>
+            <Input
+              type="password"
+              placeholder="Confirmar contraseña"
+              {...register("confirmPassword", {
+                required: "Este campo es obligatorio",
+                validate: (valuee) =>
+                  valuee === password ? true : "Las contraseñas no coinciden",
+              })}
+            />
+            {errors.confirmPassword && (
+              <ErrorMessage>{errors.confirmPassword.message}</ErrorMessage>
+            )}
+          </InputGroup>
 
-        <SubmitButton type="submit">Registrarse</SubmitButton>
-      </Form>
+          <SubmitButton type="submit">Registrarse</SubmitButton>
+        </Form>
 
-      {successMessage && <SuccessMessage>{successMessage}</SuccessMessage>}
+        {successMessage && <SuccessMessage>{successMessage}</SuccessMessage>}
+      </RegisterContainer>
     </RegisterWrapper>
   );
 }

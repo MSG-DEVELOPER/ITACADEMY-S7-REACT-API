@@ -6,12 +6,16 @@ import { login } from "../../redux/userSlice";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import {
-  RegisterWrapper,
+  LoginWrapper,
+  LoginContainer,
   Title,
+  Subtitle,
   Form,
+  InputGroup,
   Input,
+  ErrorMessage,
   SubmitButton,
-} from "../Register/Register.style";
+} from "./Login.style";
 
 type FormData = {
   email: string;
@@ -54,27 +58,40 @@ function Login() {
   }
 
   return (
-    <RegisterWrapper>
-      <Title>Iniciar sesión</Title>
+    <LoginWrapper>
+      <LoginContainer>
+        <Title>Iniciar sesión</Title>
+        <Subtitle>Accede a tu cuenta para continuar</Subtitle>
 
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <Input
-          type="email"
-          placeholder="Email"
-          {...register("email", { required: "campo obligatorio" })}
-        />
-        {errors.email && <p>{errors.email.message}</p>}
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <InputGroup>
+            <Input
+              type="email"
+              placeholder="Correo electrónico"
+              {...register("email", { required: "Este campo es obligatorio" })}
+            />
+            {errors.email && (
+              <ErrorMessage>{errors.email.message}</ErrorMessage>
+            )}
+          </InputGroup>
 
-        <Input
-          type="password"
-          placeholder="Password"
-          {...register("password", { required: "*Campo obligatorio" })}
-        />
-        {errors.password && <p>{errors.password.message}</p>}
+          <InputGroup>
+            <Input
+              type="password"
+              placeholder="Contraseña"
+              {...register("password", {
+                required: "Este campo es obligatorio",
+              })}
+            />
+            {errors.password && (
+              <ErrorMessage>{errors.password.message}</ErrorMessage>
+            )}
+          </InputGroup>
 
-        <SubmitButton type="submit">Entrar</SubmitButton>
-      </Form>
-    </RegisterWrapper>
+          <SubmitButton type="submit">Iniciar sesión</SubmitButton>
+        </Form>
+      </LoginContainer>
+    </LoginWrapper>
   );
 }
 
