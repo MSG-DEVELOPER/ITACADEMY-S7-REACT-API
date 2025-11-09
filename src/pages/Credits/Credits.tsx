@@ -6,7 +6,7 @@ import { fetchCreditsThunk } from "../../redux/thunks/fetchCreditsThunk";
 import Spinner from "../../components/Shared/Spinner/Spinner";
 import NotFound from "../../components/Shared/NotFound/NotFound";
 import CardCredits from "../../components/Credits/CardCredits/CardCredits";
-import { PageWrapper, Grid } from "./Credits.style";
+import { PageWrapper, Grid, LoadingContainer } from "./Credits.style";
 import type { RootState, AppDispatch } from "../../redux/store";
 
 interface CastMember {
@@ -14,6 +14,7 @@ interface CastMember {
   name: string;
   profile_path: string;
   character: string;
+  order: number;
 }
 
 function Credits() {
@@ -27,14 +28,41 @@ function Credits() {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(fetchCreditsThunk(url));
-  }, [url, dispatch]);
+    if (id) {
+      dispatch(fetchCreditsThunk(url));
+    }
+  }, [url, dispatch, id]);
+
+  if (loading && !data) {
+    return (
+      <PageWrapper>
+        <LoadingContainer>
+          <Spinner />
+        </LoadingContainer>
+      </PageWrapper>
+    );
+  }
+
+  if (error && !data) {
+    return (
+      <PageWrapper>
+        <LoadingContainer>
+          <NotFound />
+        </LoadingContainer>
+      </PageWrapper>
+    );
+  }
+
+  // Ordenar actores por order (protagonistas primero)
+  const sortedCast = data?.cast
+    ? [...data.cast].sort((a, b) => (a.order || 999) - (b.order || 999))
+    : [];
 
   return (
-    <div>
-      <PageWrapper>
+    <PageWrapper>
+      {sortedCast.length > 0 && (
         <Grid>
-          {data?.cast.map((member: CastMember) => (
+          {sortedCast.map((member: CastMember) => (
             <CardCredits
               key={member.id}
               name={member.name}
@@ -43,13 +71,20 @@ function Credits() {
             />
           ))}
         </Grid>
-      </PageWrapper>
+      )}
 
-      <section>
-        {loading && <Spinner />}
-        {error && <NotFound />}
-      </section>
-    </div>
+      {loading && data && (
+        <LoadingContainer>
+          <Spinner />
+        </LoadingContainer>
+      )}
+
+      {!loading && sortedCast.length === 0 && (
+        <LoadingContainer>
+          <p>No se encontraron actores para esta película.</p>
+        </LoadingContainer>
+      )}
+    </PageWrapper>
   );
 }
 
