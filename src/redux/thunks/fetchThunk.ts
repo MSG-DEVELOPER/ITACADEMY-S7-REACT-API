@@ -3,7 +3,6 @@ import { Authorization } from "../../api/config";
 
 export const fetchThunk = createAsyncThunk(
   "fetch/fetchData",
-
   (url: string) => {
     const options = {
       method: "GET",
@@ -13,9 +12,13 @@ export const fetchThunk = createAsyncThunk(
       },
     };
 
-    return fetch( url,options)
-      .then((res) => res.json())
-
+    return fetch(url, options)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
       .catch((error) => {
         throw error;
       });
